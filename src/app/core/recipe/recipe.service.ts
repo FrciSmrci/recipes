@@ -18,7 +18,7 @@ export class RecipeService {
       .map(results => results[0].concat(results[1]))
   }
 
-  public getRecipesByBatch(recipeFilter: string, ingredientFilter: string, batch: number): Observable<Recipe[]> {
+  private getRecipesByBatch(recipeFilter: string, ingredientFilter: string, batch: number): Observable<Recipe[]> {
     let params: HttpParams = new HttpParams();
     if (recipeFilter) {
       params = params.append('q', recipeFilter);
