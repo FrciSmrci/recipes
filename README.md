@@ -10,7 +10,7 @@ which gathers all app-wide singleton providers in a single module which you shou
 
 First sub folder inside the core is data and it contains the rest helper service which holds the serverUrl, exports the generateGuid function in the
 advanced implementation it would have methods like handleError as well.
-Seconds sub folder is recipe which contains the recipe model, recipe service, service mock and test.
+Second sub folder is recipe which contains the recipe model, recipe service, service mock and test.
 More on the recipe service implementation will be described in Infinitive scroll section.
 
 The shared section has the shared module with which we can reduce the repetition by re-exporting CommonModule and FormsModule so that importers of SharedModule 
@@ -23,12 +23,12 @@ With the ResolveGuard I'm prefetching the data so the rendering experience is mo
 
 For the components search implementation I have used Reactive forms provided by Angular. I decided to create a search form group with two form controls
 => recipeSearch and ingredientSearch. In the initialization of the component I first subscribe to value changes of the whole form group. I added the debounceTime operator 
-with 300 miliseconds as well as distinctUntilChanged operator so the calls will not be fired too often. Then I used switchMap operator which is a real life saver when 
-it comes to handling http requests, because it discards all of the previous ongoing calls and keeps/executes the last one. Inside switchMap I call getListItemsByBatch method
-which fetches the data from the server and maps the result into ListItem models. After that I subscribe to the search results as well and set the listItems component property 
+with 300 miliseconds as well as distinctUntilChanged operator so the calls will not fire too often. Then I used switchMap operator which is a real life saver when 
+it comes to handling http requests, because it discards all of the previous ongoing calls and keeps the last one. Inside switchMap I call getListItemsByBatch method
+which fetches the data from the server and maps the results into ListItem models. After that I subscribe to the search results as well and set the listItems component property 
 with the received result.
 
-Instead of the pagination approach I decided to use Infinitive scroll, after researching the topic I came to a conclusion it helps the user to be more engaging and
+Instead of the pagination approach I decided to use Infinitive scroll, after researching the topic I came to a conclusion it helps the user to be more engaged and
 keeps him "hooked" for a longer timespan. Because of the specific API provided which offers the pagination approach I had to come up with a solution that will fit my needs. 
 I decided to implement a method on the component called getListItemsByBatch which takes the batch number and calls the recipe service getResults method with value 
 for recipe search, ingredient search and batch number (if the number is not provided the default is set to one).
@@ -40,7 +40,7 @@ After the mapping on each batch the results are joined with the forkJoin operato
 For the translations I used the ngx-translate which is heavily supported and developed. 
 
 Every desicion I made was with clean code in mind. I tried to write it decoupled, dry and with a single responsibility principle in mind.
-The app structure is based on Angular team proposement the code style is following the TypeScript guidelines as well which can be found at 
+The app structure is based on Angular team proposal and the code style is following the TypeScript guidelines as well which can be found at 
 https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines. 
 
 ## What is this repository for? 
