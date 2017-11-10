@@ -1,7 +1,12 @@
 # RecipePuppy
+
+## What is this repository for? 
+Senior frontend developer tests for Carthook.
+
+## The basic CS
 The basic CS answers can be found at https://gist.github.com/FrciSmrci/d886d3cf8bc5b84cc4f1c4dff5b28c1d 
 
-## 1 page high level description of your solution.
+## 1 page high level description of my solution
 
 I have built a project named RecipePuppy which main feature is enabling the user to search through the recipes by title or ingredients. 
 
@@ -43,14 +48,17 @@ Every desicion I made was with clean code in mind. I tried to write it decoupled
 The app structure is based on Angular team proposal and the code style is following the TypeScript guidelines as well which can be found at 
 https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines. 
 
-## What is this repository for? 
-Senior frontend developer tests for Carthook.
+## How to run development server?
+1. git clone https://bitbucket.org/FrciSmrci/recipe-puppy.git
+2. npm install -g @angular/cli
+3. cd recipe-puppy
+4. npm install
+5. Add Allow-Control-Allow-Origin: * plugin to Chrome found at => https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en
+6. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 
 ## Project
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.2.
-
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
