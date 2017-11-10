@@ -7,10 +7,9 @@ import {RecipeService} from '../../core/recipe/recipe.service';
 export class RecipeListResolverService implements Resolve<Recipe[]> {
 
   constructor(private recipeService: RecipeService) {
-
   }
 
-  resolve(): Promise<Recipe[]> | any {
+  resolve(): Promise<Recipe[]> {
     return new Promise((resolve) => {
       this.recipeService.getRecipes()
         .subscribe(recipes => resolve(recipes))

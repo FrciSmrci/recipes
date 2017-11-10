@@ -28,6 +28,7 @@ export class RecipeListComponent implements OnInit {
     const searchResults = this.searchGroup
       .valueChanges
       .debounceTime(300)
+      .distinctUntilChanged()
       .do(() => this.loading = true)
       .switchMap(() => this.getListItemsByBatch(1))
       .do(() => this.loading = false);
