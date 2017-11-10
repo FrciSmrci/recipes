@@ -1,1 +1,54 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Lato:100,400,400i,700,700i');
+
+.search-field {
+  height: 30px;
+  padding-right: 20px;
+  border-color: transparent;
+  border-bottom: 1px solid $border-color;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: url('/assets/icons/search_24.png') no-repeat right;
+}
+
+.search-field:focus {
+  border: none;
+}
+
+.spinner-screen {
+  background: #ced7d9;
+  height: 100vh;
+}
+
+.spinner {
+  width: 150px;
+  height: 150px;
+  margin: 27rem auto;
+  background-color: #dae5e6;
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0)
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
