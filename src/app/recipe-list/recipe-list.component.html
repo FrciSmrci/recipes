@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col">
+    <div class="row action-header" [formGroup]="searchGroup">
+      <div class="col-4 search-section">
+        <input class="form-control search-field medication-search" type="text" formControlName="recipeSearch"
+               placeholder="{{'SEARCH.RECIPES' | translate}}">
+      </div>
+      <div class="col logo">{{'RECIPE.PUPPY' | translate | uppercase}}</div>
+      <div class="col-4 search-section">
+        <input class="form-control search-field medication-search" type="text" formControlName="ingredientSearch"
+               placeholder="{{'SEARCH.INGREDIENTS' | translate}}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col wrapper">
+        <div class="row data-container no-gutters">
+          <div class="data-wrapper col"
+               #scrollableElement
+               infinite-scroll
+               [infiniteScrollDistance]="4"
+               [infiniteScrollThrottle]="0"
+               (scrolled)="onScrollDown()"
+               [scrollWindow]="false">
+            <div class="row recipe-item" *ngFor="let listItem of listItems" (click)="reroute(listItem.description)">
+              <div class="col recipe-title"> {{listItem.name}}</div>
+              <img class="thumbnail col-auto"
+                   src="{{listItem.thumbnail ? listItem.thumbnail : 'http://img.recipepuppy.com/9.jpg'}}">
+            </div>
+            <div class="row" *ngIf="!this.hasListItems">
+              <div class="col no-content">
+                <div *ngIf="isLoading" class="loader"></div>
+                <div *ngIf="!isLoading && isSearchValueSufficient" class="no-results">
+                  {{'NO.RESULTS.FOUND' | translate}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
